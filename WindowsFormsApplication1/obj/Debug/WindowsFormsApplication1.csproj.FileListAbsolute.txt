@@ -7,3 +7,12 @@ c:\users\ping\documents\visual studio 2013\Projects\WindowsFormsApplication1\Win
 c:\users\ping\documents\visual studio 2013\Projects\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.GenerateResource.Cache
 c:\users\ping\documents\visual studio 2013\Projects\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
 c:\users\ping\documents\visual studio 2013\Projects\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
+C:\Users\Fallenone\Documents\GitHub\OutLookRegister\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
+C:\Users\Fallenone\Documents\GitHub\OutLookRegister\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
+C:\Users\Fallenone\Documents\GitHub\OutLookRegister\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
+C:\Users\Fallenone\Documents\GitHub\OutLookRegister\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+C:\Users\Fallenone\Documents\GitHub\OutLookRegister\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+C:\Users\Fallenone\Documents\GitHub\OutLookRegister\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csprojResolveAssemblyReference.cache
+C:\Users\Fallenone\Documents\GitHub\OutLookRegister\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Form1.resources
+C:\Users\Fallenone\Documents\GitHub\OutLookRegister\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
+C:\Users\Fallenone\Documents\GitHub\OutLookRegister\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.GenerateResource.Cache

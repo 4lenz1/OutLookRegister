@@ -1,0 +1,9 @@
+C:\Users\Fallenone\Documents\GitHub\OutLookRegister\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
+C:\Users\Fallenone\Documents\GitHub\OutLookRegister\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+C:\Users\Fallenone\Documents\GitHub\OutLookRegister\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+C:\Users\Fallenone\Documents\GitHub\OutLookRegister\WindowsFormsApplication1\obj\Debug\OutlookRegister.csprojResolveAssemblyReference.cache
+C:\Users\Fallenone\Documents\GitHub\OutLookRegister\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
+C:\Users\Fallenone\Documents\GitHub\OutLookRegister\WindowsFormsApplication1\obj\Debug\OutlookRegister.csproj.GenerateResource.Cache
+C:\Users\Fallenone\Documents\GitHub\OutLookRegister\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
+C:\Users\Fallenone\Documents\GitHub\OutLookRegister\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
+C:\Users\Fallenone\Documents\GitHub\OutLookRegister\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.OutlookRegister.resources

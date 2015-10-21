@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApplication1
 {
-    partial class Form1
+    partial class OutlookRegister
     {
         /// <summary>
         /// 設計工具所需的變數。
@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.browser = new System.Windows.Forms.WebBrowser();
-            this.btnClick = new System.Windows.Forms.Button();
             this.progresspbar = new System.Windows.Forms.ProgressBar();
             this.SuspendLayout();
             // 
@@ -37,52 +36,38 @@
             // 
             this.browser.Dock = System.Windows.Forms.DockStyle.Fill;
             this.browser.Location = new System.Drawing.Point(0, 0);
-            this.browser.MinimumSize = new System.Drawing.Size(20, 20);
+            this.browser.MinimumSize = new System.Drawing.Size(20, 22);
             this.browser.Name = "browser";
-            this.browser.Size = new System.Drawing.Size(560, 506);
+            this.browser.Size = new System.Drawing.Size(493, 672);
             this.browser.TabIndex = 0;
             this.browser.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.webBrowser1_DocumentCompleted);
             this.browser.ProgressChanged += new System.Windows.Forms.WebBrowserProgressChangedEventHandler(this.browser_ProgressChanged);
             // 
-            // btnClick
-            // 
-            this.btnClick.AutoSize = true;
-            this.btnClick.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnClick.Location = new System.Drawing.Point(496, 445);
-            this.btnClick.Name = "btnClick";
-            this.btnClick.Size = new System.Drawing.Size(40, 22);
-            this.btnClick.TabIndex = 1;
-            this.btnClick.Text = "Click";
-            this.btnClick.UseVisualStyleBackColor = true;
-          
-            // 
             // progresspbar
             // 
             this.progresspbar.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.progresspbar.Location = new System.Drawing.Point(0, 483);
+            this.progresspbar.Location = new System.Drawing.Point(0, 647);
             this.progresspbar.Name = "progresspbar";
-            this.progresspbar.Size = new System.Drawing.Size(560, 23);
+            this.progresspbar.Size = new System.Drawing.Size(493, 25);
             this.progresspbar.TabIndex = 2;
             // 
-            // Form1
+            // OutlookRegister
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(560, 506);
+            this.ClientSize = new System.Drawing.Size(493, 672);
             this.Controls.Add(this.progresspbar);
-            this.Controls.Add(this.btnClick);
             this.Controls.Add(this.browser);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "OutlookRegister";
+            this.Text = "OutlookRegister";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.WebBrowser browser;
-        private System.Windows.Forms.Button btnClick;
         private System.Windows.Forms.ProgressBar progresspbar;
     }
 }
