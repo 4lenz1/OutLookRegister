@@ -21,8 +21,8 @@ namespace WindowsFormsApplication1
         public OutlookRegister()
         {
             InitializeComponent();
-             //browser.Navigate("https://signup.live.com//signup");
-            browser.Navigate("https://signup.live.com/signup?wa=wsignin1.0&ct=1440858070&rver=6.1.6206.0&sa=1&ntprob=-1&wp=MBI_SSL_SHARED&wreply=https%3a%2f%2fmail.live.com%2f%3fowa%3d1%26owasuffix%3dowa%252f&id=64855&snsc=1&cbcxt=mail&bk=1440858070&uiflavor=web&uaid=aae9ca8192444e03a0a4bc6972fd2c1e&mkt=EN-US&lc=3076&lic=1");
+             browser.Navigate("https://signup.live.com//signup");
+           // browser.Navigate("https://signup.live.com/signup?wa=wsignin1.0&ct=1440858070&rver=6.1.6206.0&sa=1&ntprob=-1&wp=MBI_SSL_SHARED&wreply=https%3a%2f%2fmail.live.com%2f%3fowa%3d1%26owasuffix%3dowa%252f&id=64855&snsc=1&cbcxt=mail&bk=1440858070&uiflavor=web&uaid=aae9ca8192444e03a0a4bc6972fd2c1e&mkt=EN-US&lc=3076&lic=1");
             progresspbar.Minimum = 0;
 
             string line = null;
@@ -44,7 +44,16 @@ namespace WindowsFormsApplication1
                     //split by , 
                     string[] words = readline.Split(',');
                     //assign 1st index of array to account 
-                    account = words[0];
+                    //spilit @outlook.com
+                    /* 
+                    Raw data in CSV : Account_Name@outlook.com\
+                    1. spilit by '@'  
+                    2. auto named by account 
+                    3. add @outlook.com back 
+                    */
+                    string[] accountArray = words[0].Split('@');
+                    //assign account  to fill in only 
+                     account =  accountArray[0];
                     //assign 2nd index of array to password
                     pwd = words[1];
 
@@ -70,23 +79,35 @@ namespace WindowsFormsApplication1
 
         private void webBrowser1_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
         {
-            if (registerPage == 2)
+            string currentUrl = browser.Url.ToString();
+            string[] pageUrl = currentUrl.Split('/');
+            Debug.WriteLine(currentUrl);
+            if (pageUrl[2].Equals("account.microsoft.com"))
             {
-                Console.WriteLine("registerPage" + registerPage);
-               Application.Exit();
+                Application.Exit();
                 System.Environment.Exit(1);
             }
 
-            Random random = new Random();
-            
-           // string[] firstname = new string[] { "Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine" };
-            string[] number = new string [] { "Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine" };
-            // set random name 
-            string[] randonName = new string[] { "John", "Tim", "Wendy", "Tom", "Grace", "Sue", "Cheryl", "Ping", "Azure", "Mama",
+            // if(browser.Url)
+            //if (registerPage == 2)
+            //{
+            //    Console.WriteLine("registerPage" + registerPage);
+            //   Application.Exit();
+            //    System.Environment.Exit(1);
+            //}
+
+            if (pageUrl[2].Equals("signup.live.com"))
+            {
+                Random random = new Random();
+
+                // string[] firstname = new string[] { "Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine" };
+                string[] number = new string[] { "Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine" };
+                // set random name 
+                string[] randonName = new string[] { "John", "Tim", "Wendy", "Tom", "Grace", "Sue", "Cheryl", "Ping", "Azure", "Mama",
                                                  "Kobe", "Curry","Emma","Chiang","Der","Roger","Amy","Hebe","Nancy","Kevin","Tobby",
                                                 "Steven","David","Andy","Simon","Jessie","Gina","Lebron"};
-            //set all attribute
-            string[] attribute =new string[] {
+                //set all attribute
+                string[] attribute = new string[] {
                 "FirstName",
                 "LastName",
                 "MemberName",
@@ -101,100 +122,103 @@ namespace WindowsFormsApplication1
                 "PhoneNumber" };
 
 
-            HtmlElement fillElement = browser.Document.GetElementById(attribute[0]);
-            fillElement.Focus();
-           
-            //firstname
-            SendKeys.SendWait(randonName[random.Next(0, randonName.Length - 1 )]);
-            SendKeys.SendWait("{TAB}");
+                HtmlElement fillElement = browser.Document.GetElementById(attribute[0]);
+                fillElement.Focus();
+
+                //firstname
+                SendKeys.SendWait(randonName[random.Next(0, randonName.Length - 1)]);
+                SendKeys.SendWait("{TAB}");
 
 
 
-            // lastname
-            string accountName = null; 
-            string lastnameNumber = Strings.Right(account,2);
-            Debug.Print(lastnameNumber);
-            char[] lastnameChar = lastnameNumber.ToCharArray();
+                // lastname
+                string accountName = null;
+                string lastnameNumber = Strings.Right(account, 2);
+                Debug.Print(lastnameNumber);
+                char[] lastnameChar = lastnameNumber.ToCharArray();
 
-            for(int index = 0; index <= 1; index ++ )
-             accountName += number[ Convert.ToInt32 (new string ( lastnameChar[index], 1))];
-           // accountName = "Azure";
+                for (int index = 0; index <= 1; index++)
+                    accountName += number[Convert.ToInt32(new string(lastnameChar[index], 1))];
+                // accountName = "Azure";
 
-            //SendKeys.SendWait(lastname[random.Next(0, lastname.Length - 1 )]);
-            SendKeys.SendWait(accountName);
-            SendKeys.SendWait("{TAB}");
-            accountName = "";
+                //SendKeys.SendWait(lastname[random.Next(0, lastname.Length - 1 )]);
+                SendKeys.SendWait(accountName);
+                SendKeys.SendWait("{TAB}");
+                accountName = "";
 
-           // fillElement = browser.Document.GetElementById(attribute[3]);
-            SendKeys.SendWait(account);
+                // fillElement = browser.Document.GetElementById(attribute[3]);
 
-
-
-            fillElement = browser.Document.GetElementById(attribute[4]);
-            fillElement.Focus();
-            SendKeys.SendWait("{TAB}");
-            //SendKeys.SendWait("{TAB}");
+                //fill account 
+                SendKeys.SendWait(account + "@outlook.com");
 
 
 
-            //  Thread.Sleep(1000);
-            //SendKeys.SendWait("passworddd!");
-            // SendKeys.SendWait("{TAB}");
-            // SendKeys.SendWait("{TAB}");
-
-            //SendKeys.SendWait("passworddd!");
-            // SendKeys.SendWait("{TAB}");
-
-            SendKeys.SendWait("tai");
-            SendKeys.SendWait("{TAB}");
-
-            string[] month = new string[] { "j", "f", "mar", "ap", "may", "june", "july", "aug", "se", "oc", "no", "de" };
-            SendKeys.SendWait( month[random.Next(0, month.Length - 1 )] );
-            SendKeys.SendWait("{TAB}");
-
-            
-            SendKeys.SendWait(random.Next(1,12).ToString());
-            SendKeys.SendWait("{TAB}");
-
-            SendKeys.SendWait(random.Next(1945, 1997).ToString());
-            SendKeys.SendWait("{TAB}");
-
-            SendKeys.SendWait("n");
-            SendKeys.SendWait("{TAB}");
-
-            SendKeys.SendWait("tai");
-            SendKeys.SendWait("{TAB}");
-
-            SendKeys.SendWait(random.Next(900000000, 999999999).ToString());
-
-            // go to pass code 
-            SendKeys.SendWait("{TAB}");
-            SendKeys.SendWait("{TAB}");
-            SendKeys.SendWait("{TAB}");
-            SendKeys.SendWait("{TAB}");
+                fillElement = browser.Document.GetElementById(attribute[4]);
+                fillElement.Focus();
+                SendKeys.SendWait("{TAB}");
+                //SendKeys.SendWait("{TAB}");
 
 
 
-            fillElement = browser.Document.GetElementById(attribute[3]);
-            fillElement.Focus();
-            fillElement.InnerText = pwd;
-            fillElement.RemoveFocus();
+                //  Thread.Sleep(1000);
+                //SendKeys.SendWait("passworddd!");
+                // SendKeys.SendWait("{TAB}");
+                // SendKeys.SendWait("{TAB}");
 
-           
-            fillElement = browser.Document.GetElementById(attribute[4]);
-            fillElement.Focus();
-            fillElement.InnerText = pwd;
-            fillElement.RemoveFocus();
-            SendKeys.SendWait("{TAB}");
+                //SendKeys.SendWait("passworddd!");
+                // SendKeys.SendWait("{TAB}");
 
-            fillElement = browser.Document.GetElementById("iAltEmail");
-            fillElement.Focus();
+                SendKeys.SendWait("tai");
+                SendKeys.SendWait("{TAB}");
 
-            SendKeys.SendWait("{TAB}");
-            SendKeys.SendWait("{TAB}");
-            SendKeys.SendWait("{TAB}");
+                string[] month = new string[] { "j", "f", "mar", "ap", "may", "june", "july", "aug", "se", "oc", "no", "de" };
+                SendKeys.SendWait(month[random.Next(0, month.Length - 1)]);
+                SendKeys.SendWait("{TAB}");
 
-            registerPage++;
+
+                SendKeys.SendWait(random.Next(1, 12).ToString());
+                SendKeys.SendWait("{TAB}");
+
+                SendKeys.SendWait(random.Next(1945, 1997).ToString());
+                SendKeys.SendWait("{TAB}");
+
+                SendKeys.SendWait("n");
+                SendKeys.SendWait("{TAB}");
+
+                SendKeys.SendWait("tai");
+                SendKeys.SendWait("{TAB}");
+
+                SendKeys.SendWait(random.Next(900000000, 999999999).ToString());
+
+                // go to pass code 
+                SendKeys.SendWait("{TAB}");
+                SendKeys.SendWait("{TAB}");
+                SendKeys.SendWait("{TAB}");
+                SendKeys.SendWait("{TAB}");
+
+
+
+                fillElement = browser.Document.GetElementById(attribute[3]);
+                fillElement.Focus();
+                fillElement.InnerText = pwd;
+                fillElement.RemoveFocus();
+
+
+                fillElement = browser.Document.GetElementById(attribute[4]);
+                fillElement.Focus();
+                fillElement.InnerText = pwd;
+                fillElement.RemoveFocus();
+                SendKeys.SendWait("{TAB}");
+
+                fillElement = browser.Document.GetElementById("iAltEmail");
+                fillElement.Focus();
+
+                SendKeys.SendWait("{TAB}");
+                SendKeys.SendWait("{TAB}");
+                SendKeys.SendWait("{TAB}");
+
+                registerPage++;
+            }
             
         }
 
