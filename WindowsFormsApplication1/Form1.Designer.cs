@@ -30,6 +30,7 @@
         {
             this.browser = new System.Windows.Forms.WebBrowser();
             this.progresspbar = new System.Windows.Forms.ProgressBar();
+            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.SuspendLayout();
             // 
             // browser
@@ -38,7 +39,7 @@
             this.browser.Location = new System.Drawing.Point(0, 0);
             this.browser.MinimumSize = new System.Drawing.Size(20, 22);
             this.browser.Name = "browser";
-            this.browser.Size = new System.Drawing.Size(493, 672);
+            this.browser.Size = new System.Drawing.Size(376, 681);
             this.browser.TabIndex = 0;
             this.browser.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.webBrowser1_DocumentCompleted);
             this.browser.ProgressChanged += new System.Windows.Forms.WebBrowserProgressChangedEventHandler(this.browser_ProgressChanged);
@@ -46,16 +47,16 @@
             // progresspbar
             // 
             this.progresspbar.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.progresspbar.Location = new System.Drawing.Point(0, 647);
+            this.progresspbar.Location = new System.Drawing.Point(0, 656);
             this.progresspbar.Name = "progresspbar";
-            this.progresspbar.Size = new System.Drawing.Size(493, 25);
+            this.progresspbar.Size = new System.Drawing.Size(376, 25);
             this.progresspbar.TabIndex = 2;
             // 
             // OutlookRegister
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(493, 672);
+            this.ClientSize = new System.Drawing.Size(376, 681);
             this.Controls.Add(this.progresspbar);
             this.Controls.Add(this.browser);
             this.Name = "OutlookRegister";
@@ -69,6 +70,7 @@
 
         private System.Windows.Forms.WebBrowser browser;
         private System.Windows.Forms.ProgressBar progresspbar;
+        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
     }
 }
 

@@ -17,6 +17,7 @@ namespace WindowsFormsApplication1
     {
         string account;
         string pwd;
+        int registerPage = 0;
         public OutlookRegister()
         {
             InitializeComponent();
@@ -27,13 +28,13 @@ namespace WindowsFormsApplication1
             string line = null;
             int line_number = 1;
             int line_to_delete = 2;
-
+            
             using (StreamReader reader = new StreamReader("outlook.csv"))
             {
                 //System.IO.StreamWriter writer = new System.IO.StreamWriter("write.txt");
                 using (StreamWriter writer = new StreamWriter("~outlook.csv"))
                 {
-
+                    
 
                      System.IO.StreamReader file = new System.IO.StreamReader("outlook.csv");
 
@@ -69,6 +70,12 @@ namespace WindowsFormsApplication1
 
         private void webBrowser1_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
         {
+            if (registerPage == 2)
+            {
+                Console.WriteLine("registerPage" + registerPage);
+               Application.Exit();
+                System.Environment.Exit(1);
+            }
 
             Random random = new Random();
             
@@ -76,7 +83,8 @@ namespace WindowsFormsApplication1
             string[] number = new string [] { "Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine" };
             // set random name 
             string[] randonName = new string[] { "John", "Tim", "Wendy", "Tom", "Grace", "Sue", "Cheryl", "Ping", "Azure", "Mama",
-                                                 "Kobe", "Curry","Emma","Chiang","Der","Roger","Amy","Hebe","Nancy","Kevin","Tobby","Steven"};
+                                                 "Kobe", "Curry","Emma","Chiang","Der","Roger","Amy","Hebe","Nancy","Kevin","Tobby",
+                                                "Steven","David","Andy","Simon","Jessie","Gina","Lebron"};
             //set all attribute
             string[] attribute =new string[] {
                 "FirstName",
@@ -186,58 +194,8 @@ namespace WindowsFormsApplication1
             SendKeys.SendWait("{TAB}");
             SendKeys.SendWait("{TAB}");
 
-          //  fillElement = browser.Document.GetElementById(attribute[0]);
-           // fillElement.InnerText = "FirstName";
-
-
-            //for (int index = 0; index < attribute.Length; index++)
-            //{
-            //    HtmlElement fillElement = browser.Document.GetElementById(attribute[index]);
-            //    fillElement.Focus();
-
-            //    switch (index)
-            //    {
-
-            //        case 0:
-            //            fillElement.InnerText = "FirstName";
-            //            break;
-            //        case 1:
-            //            fillElement.InnerText = "LastName";
-            //            break;
-            //        case 2:
-            //            fillElement.InnerText = "MemberName19722@outlook.com";
-            //            break;
-
-            //        case 3:
-            //        case 4:
-            //            //fillElement.InnerText = "Password!!ew";
-            //            //int milliseconds = 1500;
-            //            //Thread.Sleep(milliseconds);
-            //            break;
-            //        case 5:
-            //        case 10:
-            //            fillElement.SetAttribute("value", "TW");
-            //            break;
-            //        case 6:
-            //            fillElement.SetAttribute("value", random.Next(1, 12).ToString());
-            //            break;
-            //        case 7:
-            //            fillElement.SetAttribute("value", random.Next(1, 28).ToString());
-            //            break;
-            //        case 8:
-            //            fillElement.SetAttribute("value", random.Next(1940, 2000).ToString());
-            //            break;
-            //        case 9:
-            //            fillElement.SetAttribute("value", "u");
-            //            break;
-            //        case 11:
-            //            fillElement.InnerText = "987456321";
-            //            break;
-
-            //    }
-            //    fillElement.InvokeMember("onchange");
-            //    fillElement.RemoveFocus();
-            //}
+            registerPage++;
+            
         }
 
 
