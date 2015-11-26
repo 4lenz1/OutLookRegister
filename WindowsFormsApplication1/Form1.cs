@@ -81,11 +81,22 @@ namespace WindowsFormsApplication1
         {
             string currentUrl = browser.Url.ToString();
             string[] pageUrl = currentUrl.Split('/');
-            Debug.WriteLine(currentUrl);
-            if (pageUrl[2].Equals("account.microsoft.com"))
+            Debug.WriteLine("current url : " + currentUrl);
+            Debug.WriteLine("pageUrl[3] : " + pageUrl[3]);
+            //if (pageUrl[2].Equals("account.microsoft.com"))
+            //{
+            //    Application.Exit();
+            //    System.Environment.Exit(1);
+            //}
+            if (pageUrl[2].Equals("login.live.com"))
             {
-                Application.Exit();
-                System.Environment.Exit(1);
+                if (!pageUrl[3].Equals("ppsecure"))
+                {
+                    Debug.WriteLine("exit");
+                    Application.Exit();
+                    System.Environment.Exit(1);
+                    
+                }
             }
 
             // if(browser.Url)
