@@ -21,8 +21,8 @@ namespace WindowsFormsApplication1
         public OutlookRegister()
         {
             InitializeComponent();
-             browser.Navigate("https://signup.live.com//signup");
-           // browser.Navigate("https://signup.live.com/signup?wa=wsignin1.0&ct=1440858070&rver=6.1.6206.0&sa=1&ntprob=-1&wp=MBI_SSL_SHARED&wreply=https%3a%2f%2fmail.live.com%2f%3fowa%3d1%26owasuffix%3dowa%252f&id=64855&snsc=1&cbcxt=mail&bk=1440858070&uiflavor=web&uaid=aae9ca8192444e03a0a4bc6972fd2c1e&mkt=EN-US&lc=3076&lic=1");
+             //browser.Navigate("https://signup.live.com//signup");
+            browser.Navigate("https://signup.live.com/signup?wa=wsignin1.0&ct=1440858070&rver=6.1.6206.0&sa=1&ntprob=-1&wp=MBI_SSL_SHARED&wreply=https%3a%2f%2fmail.live.com%2f%3fowa%3d1%26owasuffix%3dowa%252f&id=64855&snsc=1&cbcxt=mail&bk=1440858070&uiflavor=web&uaid=aae9ca8192444e03a0a4bc6972fd2c1e&mkt=EN-US&lc=3076&lic=1");
             progresspbar.Minimum = 0;
 
             string line = null;
@@ -90,7 +90,7 @@ namespace WindowsFormsApplication1
             //}
             if (pageUrl[2].Equals("login.live.com"))
             {
-                if (!pageUrl[3].Equals("ppsecure"))
+                if (pageUrl[3].Equals("ppsecure"))
                 {
                     Debug.WriteLine("exit");
                     Application.Exit();
@@ -160,8 +160,8 @@ namespace WindowsFormsApplication1
                 // fillElement = browser.Document.GetElementById(attribute[3]);
 
                 //fill account 
-                SendKeys.SendWait(account + "@outlook.com");
-
+             //   SendKeys.SendWait(account + "@outlook.com");
+                SendKeys.SendWait(account);
 
 
                 fillElement = browser.Document.GetElementById(attribute[4]);
