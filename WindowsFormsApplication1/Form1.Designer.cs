@@ -31,6 +31,7 @@
             this.browser = new System.Windows.Forms.WebBrowser();
             this.progresspbar = new System.Windows.Forms.ProgressBar();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.txtAccount = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // browser
@@ -52,17 +53,26 @@
             this.progresspbar.Size = new System.Drawing.Size(376, 25);
             this.progresspbar.TabIndex = 2;
             // 
+            // txtAccount
+            // 
+            this.txtAccount.Location = new System.Drawing.Point(0, 0);
+            this.txtAccount.Name = "txtAccount";
+            this.txtAccount.Size = new System.Drawing.Size(364, 20);
+            this.txtAccount.TabIndex = 3;
+            // 
             // OutlookRegister
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(376, 681);
+            this.Controls.Add(this.txtAccount);
             this.Controls.Add(this.progresspbar);
             this.Controls.Add(this.browser);
             this.Name = "OutlookRegister";
             this.Text = "OutlookRegister";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -71,6 +81,7 @@
         private System.Windows.Forms.WebBrowser browser;
         private System.Windows.Forms.ProgressBar progresspbar;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
+        private System.Windows.Forms.TextBox txtAccount;
     }
 }
 

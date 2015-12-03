@@ -93,8 +93,9 @@ namespace WindowsFormsApplication1
                 if (pageUrl[3].Equals("ppsecure"))
                 {
                     Debug.WriteLine("exit");
-                    Application.Exit();
-                    System.Environment.Exit(1);
+                    Application.Restart();
+                    //Application.Exit();
+                    //System.Environment.Exit(1);
                     
                 }
             }
@@ -167,6 +168,8 @@ namespace WindowsFormsApplication1
                 fillElement = browser.Document.GetElementById(attribute[4]);
                 fillElement.Focus();
                 SendKeys.SendWait("{TAB}");
+
+                txtAccount.Text = account;
                 //SendKeys.SendWait("{TAB}");
 
 
@@ -179,27 +182,53 @@ namespace WindowsFormsApplication1
                 //SendKeys.SendWait("passworddd!");
                 // SendKeys.SendWait("{TAB}");
 
-                SendKeys.SendWait("tai");
+                fillElement = browser.Document.GetElementById(attribute[5]);
+                fillElement.Focus();
+                fillElement.SetAttribute("value", "TW");
+
+                //SendKeys.SendWait("tai");
                 SendKeys.SendWait("{TAB}");
 
+
+                fillElement = browser.Document.GetElementById(attribute[6]);
+                fillElement.Focus();
                 string[] month = new string[] { "j", "f", "mar", "ap", "may", "june", "july", "aug", "se", "oc", "no", "de" };
                 SendKeys.SendWait(month[random.Next(0, month.Length - 1)]);
-                SendKeys.SendWait("{TAB}");
+                //SendKeys.SendWait("{TAB}");
 
+                fillElement = browser.Document.GetElementById(attribute[7]);
+                fillElement.Focus();
 
                 SendKeys.SendWait(random.Next(1, 12).ToString());
-                SendKeys.SendWait("{TAB}");
+               SendKeys.SendWait("{TAB}");
 
+
+
+                fillElement = browser.Document.GetElementById(attribute[8]);
+                fillElement.Focus();
                 SendKeys.SendWait(random.Next(1945, 1997).ToString());
-                SendKeys.SendWait("{TAB}");
+             SendKeys.SendWait("{TAB}");
+
+                // doesn't work when focus on gender 
+                fillElement = browser.Document.GetElementById(attribute[9]);
+                fillElement.Focus();
+                fillElement.SetAttribute("value", "u");
 
                 SendKeys.SendWait("n");
                 SendKeys.SendWait("{TAB}");
 
-                SendKeys.SendWait("tai");
-                SendKeys.SendWait("{TAB}");
 
-                SendKeys.SendWait(random.Next(900000000, 999999999).ToString());
+                fillElement = browser.Document.GetElementById(attribute[10]);
+                fillElement.Focus();
+                fillElement.SetAttribute("value", "TW");
+
+                // SendKeys.SendWait("tai");
+                // SendKeys.SendWait("{TAB}");
+
+                fillElement = browser.Document.GetElementById(attribute[11]);
+                fillElement.Focus();
+                fillElement.InnerText = random.Next(900000000, 999999999).ToString();
+                //SendKeys.SendWait(random.Next(900000000, 999999999).ToString());
 
                 // go to pass code 
                 SendKeys.SendWait("{TAB}");
