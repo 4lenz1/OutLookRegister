@@ -70,7 +70,7 @@
             this.Controls.Add(this.browser);
             this.Name = "OutlookRegister";
             this.Text = "OutlookRegister";
-            this.Load += new System.EventHandler(this.Form1_Load);
+          
             this.ResumeLayout(false);
             this.PerformLayout();
 
